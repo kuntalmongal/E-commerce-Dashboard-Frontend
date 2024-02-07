@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import { Link } from 'react-router-dom';
+const baseurl="https://e-comm-backend-vvf6.onrender.com"
 
 const ProductList = () => {
     const[products,setProducts]=useState([])
@@ -10,7 +11,7 @@ const ProductList = () => {
 
     },[])
      const getProducts=async()=>{
-        let result=await fetch ("http://localhost:5000/products",{
+        let result=await fetch (`${baseurl}/products`,{
             headers:{
                 authorization:`${JSON.parse(localStorage.getItem('token'))}` 
 
@@ -23,7 +24,7 @@ const ProductList = () => {
      } 
      const deleteProduct= async (id)=>{
         console.warn(id)
-        let result=await fetch(`http://localhost:5000/product/${id}`,{
+        let result=await fetch(`${baseurl}/product/${id}`,{
           method:"Delete",
           headers:{
             authorization:`${JSON.parse(localStorage.getItem('token'))}`
@@ -39,7 +40,7 @@ const ProductList = () => {
      const searchHandle= async(event)=>{
           let key=event.target.value;
           if(key){
-          let result=await fetch(`http://localhost:5000/search/${key}`,{
+          let result=await fetch(`${baseurl}/search/${key}`,{
             headers:{
                 authorization:`${JSON.parse(localStorage.getItem('token'))}`
             }

@@ -6,6 +6,7 @@ const SignUp = () => {
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
     const navigate=useNavigate();
+    const baseurl="https://e-comm-backend-vvf6.onrender.com";
 
     useEffect(()=>{
         const auth=localStorage.getItem('user');
@@ -16,7 +17,7 @@ const SignUp = () => {
     )
     const collectData = async () => {
         console.warn(name, email, password);
-      let result = await fetch('http://localhost:5000/register', {
+      let result = await fetch(`${baseurl}/register`, {
             method: 'post',
             body: JSON.stringify({ name, email, password }),
             headers: {

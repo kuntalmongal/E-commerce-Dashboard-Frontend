@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import {useNavigate} from 'react-router-dom'
+const baseurl="https://e-comm-backend-vvf6.onrender.com"
 const Login=()=>{
     const[email,setEmail]=React.useState('');
     const [password,setPassword]=React.useState('');
@@ -14,7 +15,7 @@ const Login=()=>{
    
     const handleLogin=async()=>{
        console.warn(email,password ) 
-       let result=await fetch('http://localhost:5000/login',{
+       let result=await fetch(`${baseurl}/login`,{
        method : 'post',
        body:JSON.stringify({email,password}),
        headers: {

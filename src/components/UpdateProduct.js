@@ -14,6 +14,7 @@ const UpdateProduct = () => {
 
     const params = useParams();
     const navigate = useNavigate();
+    const baseurl="https://e-comm-backend-vvf6.onrender.com";
 
     useEffect(() => {
 
@@ -23,7 +24,7 @@ const UpdateProduct = () => {
 
     const getProductDetails = async () => {
         console.warn(params)
-        let result = await fetch(`http://localhost:5000/product/${params.id}`,
+        let result = await fetch(`${baseurl}/product/${params.id}`,
         {headers:{
             authorization:`${JSON.parse(localStorage.getItem('token'))}`
         }}
@@ -39,7 +40,7 @@ const UpdateProduct = () => {
 
     const UpdateProduct = async () => {
         console.warn(name, price, category, company)
-        let result = await fetch(`http://localhost:5000/product/${params.id}`, {
+        let result = await fetch(`${baseurl}/product/${params.id}`, {
             method: 'Put',
             body: JSON.stringify({ name, price, category, company }),
             headers: {

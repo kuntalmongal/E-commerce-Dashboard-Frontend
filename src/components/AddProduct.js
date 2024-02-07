@@ -1,4 +1,5 @@
 import React from 'react';
+const baseurl="https://e-comm-backend-vvf6.onrender.com"
 
 const AddProduct = () => {
 
@@ -22,7 +23,7 @@ const AddProduct = () => {
 
        
         const userId = JSON.parse(localStorage.getItem('user'))._id;
-        let result = await fetch("http://localhost:5000/add-product", {
+        let result = await fetch(`${baseurl}/add-product`, {
             method: "post",
             body: JSON.stringify({ name, price, category, company, userId }),
             headers: {
