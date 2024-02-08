@@ -31,11 +31,12 @@ const ProductList = () => {
         }
 
         });
+        result = await result.json();
         if(result){
             getProducts();
         }
 
-        result=await result.json()
+        
      };
      const searchHandle= async(event)=>{
           let key=event.target.value;
